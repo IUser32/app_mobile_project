@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:EmpleadosApp.ViewModels"
              x:DataType="vm:DepartamentoFormViewModel"
              x:Class="EmpleadosApp.Views.DepartamentoFormPage"
-             BackgroundColor="{StaticResource SurfaceBackground}"
+
              Title="{Binding TituloPagina}">
 
     <Grid RowDefinitions="*,Auto">
@@ -26,9 +26,9 @@
                 <Border Style="{StaticResource Field}">
                     <Editor Text="{Binding Descripcion}"
                             BackgroundColor="Transparent"
-                            TextColor="{StaticResource Gray900}"
-                            PlaceholderColor="{StaticResource Gray400}"
-                            Placeholder="Breve descripción del departamento"
+                            TextColor="{AppThemeBinding Light={StaticResource LOnSurface}, Dark={StaticResource DOnSurface}}"
+                            PlaceholderColor="{AppThemeBinding Light={StaticResource LOnSurfaceVariant}, Dark={StaticResource DOnSurfaceVariant}}"
+                            Placeholder="Breve descripción del área"
                             AutoSize="TextChanges"
                             HeightRequest="100" />
                 </Border>

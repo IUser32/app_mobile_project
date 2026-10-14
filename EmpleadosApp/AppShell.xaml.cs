@@ -1,5 +1,3 @@
-using EmpleadosApp.Services;
-
 namespace EmpleadosApp;
 
 public partial class AppShell : Shell
@@ -7,21 +5,10 @@ public partial class AppShell : Shell
     public AppShell()
     {
         InitializeComponent();
-    }
 
-    private async void OnCerrarSesionClicked(object? sender, EventArgs e)
-    {
-        var confirmar = await DisplayAlertAsync(
-            "Cerrar sesión",
-            "¿Seguro que quieres salir?",
-            "Sí",
-            "No");
-
-        if (confirmar)
-        {
-            UsuariosService.CerrarSesion();
-            FlyoutIsPresented = false;
-            await GoToAsync("//login");
-        }
+        Routing.RegisterRoute("empleado-form", typeof(Views.EmpleadoFormPage));
+        Routing.RegisterRoute("departamento-form", typeof(Views.DepartamentoFormPage));
+        Routing.RegisterRoute("cargo-form", typeof(Views.CargoFormPage));
+        Routing.RegisterRoute("usuario-form", typeof(Views.UsuarioFormPage));
     }
 }

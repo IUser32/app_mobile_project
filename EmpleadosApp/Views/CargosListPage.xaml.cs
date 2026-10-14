@@ -19,7 +19,7 @@ public partial class CargosListPage : ContentPage
 
     private async void OnNuevoCargoClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//cargo-form");
+        await Shell.Current.GoToAsync("cargo-form");
     }
 
     private async void OnCargoSeleccionado(object? sender, SelectionChangedEventArgs e)
@@ -28,6 +28,6 @@ public partial class CargosListPage : ContentPage
 
         CargosCollection.SelectedItem = null;
 
-        await Shell.Current.GoToAsync($"//cargo-form?id={cargo.Id}");
+        await Shell.Current.GoToAsync($"cargo-form?id={cargo.Id}");
     }
 }

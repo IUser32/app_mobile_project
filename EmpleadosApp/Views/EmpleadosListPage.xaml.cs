@@ -56,7 +56,7 @@ public partial class EmpleadosListPage : ContentPage
 
     private async void OnNuevoEmpleadoClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//empleado-form");
+        await Shell.Current.GoToAsync("empleado-form");
     }
 
     private async void OnEmpleadoSeleccionado(object? sender, SelectionChangedEventArgs e)
@@ -65,6 +65,6 @@ public partial class EmpleadosListPage : ContentPage
 
         EmpleadosCollection.SelectedItem = null;
 
-        await Shell.Current.GoToAsync($"//empleado-form?id={empleado.Id}");
+        await Shell.Current.GoToAsync($"empleado-form?id={empleado.Id}");
     }
 }

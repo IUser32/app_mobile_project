@@ -34,7 +34,7 @@ public partial class PrincipalPage : ContentPage
         => await Shell.Current.GoToAsync("//usuarios");
 
     private async void OnNuevoEmpleadoClicked(object? sender, EventArgs e)
-        => await Shell.Current.GoToAsync("//empleado-form");
+        => await Shell.Current.GoToAsync("empleado-form");
 
     private async void OnCerrarSesionClicked(object? sender, EventArgs e)
     {

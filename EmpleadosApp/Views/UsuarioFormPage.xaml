@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:EmpleadosApp.ViewModels"
              x:DataType="vm:UsuarioFormViewModel"
              x:Class="EmpleadosApp.Views.UsuarioFormPage"
-             BackgroundColor="{StaticResource SurfaceBackground}"
+
              Title="{Binding TituloPagina}">
 
     <Grid RowDefinitions="*,Auto">

@@ -3,62 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:EmpleadosApp.Models"
              x:Class="EmpleadosApp.Views.DepartamentosListPage"
-             BackgroundColor="{StaticResource SurfaceBackground}"
-             Title="Departamentos">
+             Shell.NavBarIsVisible="False"
+             Title="Áreas">
 
-    <Grid Padding="20,16,20,20" RowDefinitions="Auto,*,Auto" RowSpacing="14">
+    <Grid>
+        <Grid Padding="20,24,20,0" RowDefinitions="Auto,*" RowSpacing="16">
 
-        <VerticalStackLayout Grid.Row="0" Spacing="2">
-            <Label Text="Departamentos"
-                   Style="{StaticResource HeaderLabel}" />
-            <Label Text="Toca un departamento para editarlo"
-                   Style="{StaticResource SubheaderLabel}" />
-        </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="0" Spacing="2">
+                <Label Text="Áreas" Style="{StaticResource DisplayLabel}" />
+                <Label Text="Toca un área para editarla" Style="{StaticResource SubheaderLabel}" />
+            </VerticalStackLayout>
 
-        <Border Grid.Row="1" Style="{StaticResource Card}" Padding="0">
-            <CollectionView x:Name="DepartamentosCollection"
-                            SelectionMode="Single"
-                            SelectionChanged="OnDepartamentoSeleccionado">
-                <CollectionView.EmptyView>
-                    <VerticalStackLayout Padding="24,48" Spacing="6" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="Sin departamentos"
-                               FontSize="17"
-                               FontAttributes="Bold"
-                               TextColor="{StaticResource Gray900}"
-                               HorizontalOptions="Center" />
-                        <Label Text="Crea el primero con el botón de abajo."
-                               Style="{StaticResource SubheaderLabel}"
-                               HorizontalOptions="Center" />
-                    </VerticalStackLayout>
-                </CollectionView.EmptyView>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Departamento">
-                        <VerticalStackLayout Spacing="0">
-                            <Grid Padding="20,14" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
-                                <VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center">
-                                    <Label Text="{Binding Nombre}" Style="{StaticResource RowTitle}" />
-                                    <Label Text="{Binding Descripcion}"
-                                           Style="{StaticResource RowSubtitle}"
-                                           LineBreakMode="TailTruncation"
-                                           MaxLines="2" />
-                                </VerticalStackLayout>
-                                <Border Grid.Column="1" Style="{StaticResource Pill}">
-                                    <Label Text="{Binding Estado}" Style="{StaticResource PillText}" />
-                                </Border>
-                                <Label Grid.Column="2" Style="{StaticResource Chevron}" />
-                            </Grid>
-                            <BoxView Style="{StaticResource Divider}" />
+            <Border Grid.Row="1" Style="{StaticResource Card}" Padding="0">
+                <CollectionView x:Name="DepartamentosCollection"
+                                SelectionMode="Single"
+                                SelectionChanged="OnDepartamentoSeleccionado">
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout Padding="24,48" Spacing="6" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="Sin áreas" Style="{StaticResource RowTitle}" HorizontalOptions="Center" />
+                            <Label Text="Crea la primera con el botón +." Style="{StaticResource SubheaderLabel}" HorizontalOptions="Center" />
                         </VerticalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Border>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Departamento">
+                            <VerticalStackLayout Spacing="0">
+                                <Grid Padding="20,16" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center">
+                                        <Label Text="{Binding Nombre}" Style="{StaticResource RowTitle}" />
+                                        <Label Text="{Binding Descripcion}"
+                                               Style="{StaticResource RowSubtitle}"
+                                               LineBreakMode="TailTruncation"
+                                               MaxLines="2" />
+                                    </VerticalStackLayout>
+                                    <Border Grid.Column="1" Style="{StaticResource Pill}">
+                                        <Label Text="{Binding Estado}" Style="{StaticResource PillText}" />
+                                    </Border>
+                                    <Label Grid.Column="2" Style="{StaticResource Chevron}" />
+                                </Grid>
+                                <BoxView Style="{StaticResource Divider}" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="96" Color="Transparent" BackgroundColor="Transparent" />
+                    </CollectionView.Footer>
+                </CollectionView>
+            </Border>
 
-        <Button Grid.Row="2"
-                Text="+ Nuevo departamento"
-                Style="{StaticResource PrimaryButton}"
-                Clicked="OnNuevoDepartamentoClicked" />
+        </Grid>
 
+        <Button Text="+" Style="{StaticResource Fab}" Clicked="OnNuevoDepartamentoClicked" />
     </Grid>
 
 </ContentPage>

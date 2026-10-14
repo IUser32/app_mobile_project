@@ -19,7 +19,7 @@ public partial class UsuariosListPage : ContentPage
 
     private async void OnNuevoUsuarioClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//usuario-form");
+        await Shell.Current.GoToAsync("usuario-form");
     }
 
     private async void OnUsuarioSeleccionado(object? sender, SelectionChangedEventArgs e)
@@ -28,6 +28,6 @@ public partial class UsuariosListPage : ContentPage
 
         UsuariosCollection.SelectedItem = null;
 
-        await Shell.Current.GoToAsync($"//usuario-form?id={usuario.Id}");
+        await Shell.Current.GoToAsync($"usuario-form?id={usuario.Id}");
     }
 }

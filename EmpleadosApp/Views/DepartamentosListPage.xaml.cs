@@ -19,7 +19,7 @@ public partial class DepartamentosListPage : ContentPage
 
     private async void OnNuevoDepartamentoClicked(object? sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//departamento-form");
+        await Shell.Current.GoToAsync("departamento-form");
     }
 
     private async void OnDepartamentoSeleccionado(object? sender, SelectionChangedEventArgs e)
@@ -28,6 +28,6 @@ public partial class DepartamentosListPage : ContentPage
 
         DepartamentosCollection.SelectedItem = null;
 
-        await Shell.Current.GoToAsync($"//departamento-form?id={departamento.Id}");
+        await Shell.Current.GoToAsync($"departamento-form?id={departamento.Id}");
     }
 }
